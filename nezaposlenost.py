@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import matplotlib as mpl
 
 datumi = ['23.3.', '24.3.', '25.3.', '26.3.', '27.3.', '30.3.', '31.3.', '1.4.', '2.4.', '3.4.', '4.4.', '7.4.', '8.4.',
           '9.4.', '10.4.', '11.4.', '12.4.', '13.4.', '14.4.', '15.4.', '16.4.', '17.4.', '18.4.', '19.4.', '20.4.',
@@ -6,7 +7,7 @@ datumi = ['23.3.', '24.3.', '25.3.', '26.3.', '27.3.', '30.3.', '31.3.', '1.4.',
           '3.5.', '4.5.', '5.5.', '6.5.', '7.5.', '8.5.', '9.5.', '10.5.', '11.5.', '12.5.', '13.5.', '14.5.', '15.5.',
           '16.5.', '17.5.', '18.5.', '19.5.', '20.5.', '21.5.', '22.5.', '23.5.', '24.5.', '25.5.', '26.5.', '27.5.',
           '28.5.', '29.5.', '30.5.', '31.5.']
-broj_novonez = [565, 784, 867, 951, 1140, 382, 1153, 1019, 1358, 1658, 1098, 1682, 1115, 867]
+broj_novonez = [565, 784, 867, 951, 1140, 382, 1153, 1019, 1358, 1658, 1098, 1682, 1115, 867, 1215]
 osn_broj_nez = 136071
 broj_nez = [136071]
 
@@ -39,16 +40,18 @@ for i in range(broj_datuma-1):
     broj_nez.append(int(new_nez))
 
 print(broj_nez)
-fig, (plot1, plot2) = plt.subplots(nrows=2, ncols=1)
+fig, (plot1, plot2) = plt.subplots(nrows=2, ncols=1, figsize=(19.2, 9.8))
 
-plot1.bar(datumi[:40], broj_novonez[:40], label="Broj novonezaposlenih", color="green")
+plot1.bar(datumi, broj_novonez[:broj_datuma], label="Broj novonezaposlenih", color="green")
 plot1.set_title("Broj novonezaposlenih s vremenom")
 
-plot2.plot(datumi[:40], broj_nez[:40], label="Broj nezaposlenih", color="red")
-#plot2.set_ylim(135000, 220000)
+plot2.bar(datumi, broj_nez[:broj_datuma], label="Broj nezaposlenih", color="red")
+plot2.set_ylim(135000)
 plot2.set_title("Broj nezaposlenih s vremenom")
 
 plt.setp([plot1.get_xticklabels(), plot2.get_xticklabels()], rotation=60, ha="right")
 fig.legend()
 plt.xlabel("Vrijeme")
+plt.savefig("Nezaposlenost_u_RH.png")
 plt.show()
+

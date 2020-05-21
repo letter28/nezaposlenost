@@ -10,7 +10,7 @@ datumi = ['23.3.', '24.3.', '25.3.', '26.3.', '27.3.', '28.3.', '29.3.', '30.3.'
           '28.5.', '29.5.', '30.5.', '31.5.']
 broj_novonez = [565, 784, 867, 951, 1140, 0, 0, 382, 1153, 1019, 1358, 1658, 1098, 0, 0, 1682, 1115, 867, 1215, 0, 0, 0,
                 0, 1249, 0, 728, 711, 0, 0, 787, 550, 474, 447, 524, 0, 0, 401, 251, 292, 147, 0, 0, 0, 508, 0, 0, 806,
-                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -343, -457]
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -343, -457, -41]
 osn_broj_nez = 136071
 broj_nez = [136071]
 
@@ -32,7 +32,7 @@ for j in range(broj_dana_real):
         diff = new - old
         diffs.append(diff)
 
-prosjek_novonezaposlenih = sum(diffs) / len(diffs)
+prosjek_novonezaposlenih = int(sum(diffs) / len(diffs))
 print(f"Prosjek novonezaposlenih na dan: {prosjek_novonezaposlenih}")
 
 for i in range(broj_datuma-1):
